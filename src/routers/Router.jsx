@@ -7,6 +7,7 @@ import AddProducts from "../products/AddProducts";
 import ProductBrands from "../components/productBrand/ProductBrands";
 import Products from "../products/Products";
 import ProductUpdate from "../products/ProductUpdate";
+import SingleProduct from "../products/SingleProduct";
 
 
 const router = createBrowserRouter([
@@ -36,14 +37,19 @@ const router = createBrowserRouter([
                 loader: ({params})=> fetch(`http://localhost:3000/products/${params.name}`)
             },
             {
+                path: '/product/:id',
+                element: <SingleProduct />,
+                loader: ({params})=> fetch(`http://localhost:3000/product/${params.id}`)
+            },
+            {
                 path: '/update/:id',
                 element: <ProductUpdate />,
-                loader: ({params})=> fetch(`http://localhost:3000/products/update/${params.id}`)
+                loader: ({params})=> fetch(`http://localhost:3000/product/${params.id}`)
             },
             {
                 path: '/brands',
                 element: <ProductBrands />,
-                loader: ()=> fetch('http://localhost:3000/products')
+                loader: ()=> fetch('http://localhost:3000/brands')
             }
         ]
     },

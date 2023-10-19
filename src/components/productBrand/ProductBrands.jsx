@@ -10,7 +10,7 @@ const ProductBrands = () => {
             <div>
                 <h1 className="text-4xl font-bold text-center">Our Brands</h1>
             </div>
-            <div className="grid grid-cols-3 gap-4 my-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
                 {
                     loadedBrand?.map((brand) => <Brand key={brand._id} brand={brand} />)
                 }

@@ -1,12 +1,30 @@
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 
 
 const ProductUpdate = () => {
-    const brands = ["Apple", "Samsung", "Sony", "LG", "Microsoft", "Google"];
-    const categories = ["Phone", "Headphone", "Watch", "Tablet", "Laptop", "Smart Home"];
+    const [brands, setBrands] = useState([]);
+    const [categories, setCategories] = useState([]);
     const loadedData = useLoaderData();
 
+    useEffect(() => {
+        fetch('http://localhost:3000/brands')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setBrands(data);
+            })
+    }, [])
+
+    useEffect(() => {
+        fetch('http://localhost:3000/categories')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setCategories(data);
+            })
+    }, [])
 
     const handleAddProduct = (e) => {
         e.preventDefault();
@@ -43,37 +61,37 @@ const ProductUpdate = () => {
     }
 
     return (
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto py-16">
             <div>
                 <h2 className="bg-blue-700 p-2 text-center text-3xl text-white">Update product</h2>
             </div>
             <div className="my-16 border p-4">
                 <form onSubmit={handleAddProduct}>
-                    <label className="font-bold"  htmlFor="productName">Product name:</label><br />
+                    <label className="font-bold" htmlFor="productName">Product name:</label><br />
                     <input className="p-1 mb-4 rounded border w-full" type="text" name='productName' placeholder="Product name" defaultValue={loadedData.productName} /> <br />
-                    <label className="font-bold"  htmlFor="productImgUrl">Product image url:</label><br />
+                    <label className="font-bold" htmlFor="productImgUrl">Product image url:</label><br />
                     <input className="p-1 mb-4 rounded border w-full" type="text" name='productImgUrl' placeholder="Product image url" defaultValue={loadedData.productImgUrl} /> <br />
-                    <label className="font-bold"  htmlFor="brand">Brand Name:</label><br />
+                    <label className="font-bold" htmlFor="brand">Brand Name:</label><br />
                     <select id="brand" name="brand" className="p-1 mb-4 rounded border w-full">
                         <option value="">Select a brand</option>
-                        {brands.map((brand, index) => (
-                            <option key={index} value={brand} selected={loadedData?.brandName === brand}>{brand}</option>
+                        {brands?.map((brand, index) => (
+                            <option key={index} value={brand.brandname} selected={loadedData?.brandName === brand?.brandname}>{brand?.brandname}</option>
                         ))}
                     </select>
                     <br />
-                    <label className="font-bold"  htmlFor="category">Category:</label><br />
+                    <label className="font-bold" htmlFor="category">Category:</label><br />
                     <select id="category" name="category" className="p-1 mb-4 rounded border w-full">
                         <option value="">Select a category</option>
                         {categories.map((ctg, index) => (
-                            <option key={index} value={ctg} selected={loadedData?.category === ctg}>{ctg}</option>
+                            <option key={index} value={ctg.name} selected={loadedData?.category === ctg.name}>{ctg.name}</option>
                         ))}
                     </select><br />
-                    <label className="font-bold"  htmlFor="price">Product price:</label><br />
+                    <label className="font-bold" htmlFor="price">Product price:</label><br />
                     <input className="p-1 mb-4 rounded border w-full" type="number" name='productPrice' placeholder="Product price" defaultValue={loadedData.productPrice} /> <br />
-                    <label className="font-bold"  htmlFor="description">Product short description:</label><br />
+                    <label className="font-bold" htmlFor="description">Product short description:</label><br />
                     <textarea className="h-44 p-1 mb-4 rounded border w-full" type="text" name='shortDescription' placeholder="Product short description" defaultValue={loadedData.shortDescription} /> <br />
 
-                    <input className="p-1 mb-4 rounded bg-blue-700 w-full text-white" type="submit" value={'Add product'} />
+                    <input className="p-1 mb-4 rounded bg-blue-700 w-full text-white" type="submit" value={'Update product'} />
                 </form>
             </div>
         </div>
