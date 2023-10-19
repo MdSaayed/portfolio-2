@@ -8,6 +8,7 @@ import ProductBrands from "../components/productBrand/ProductBrands";
 import Products from "../products/Products";
 import ProductUpdate from "../products/ProductUpdate";
 import SingleProduct from "../products/SingleProduct";
+import Carts from "../components/carts/Carts";
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
                 path: '/brands',
                 element: <ProductBrands />,
                 loader: ()=> fetch('http://localhost:3000/brands')
+            },
+            {
+                path: '/carts',
+                element: <Carts />,
+                loader: ()=> fetch('http://localhost:3000/products')
             }
         ]
     },

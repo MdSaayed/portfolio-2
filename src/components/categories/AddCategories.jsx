@@ -23,7 +23,7 @@ const AddCategories = () => {
             },
             body: JSON.stringify(category)
         })
-            .then(res => toast.success('Brand added successfully.'))
+            .then(res => toast.success('Category added successfully.'))
             .then(data => console.log(data))
 
     }

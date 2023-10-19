@@ -1,8 +1,23 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { addItemOnLS, getItemsFromLS } from "../js/addTocard";
+import { toast } from "react-toastify";
 
 
 const SingleProduct = () => {
     const loadedData = useLoaderData();
+
+    const addToCart = (id) => {
+        const cartItems = getItemsFromLS();
+        const isItemInCart = cartItems.some((item) => item === id);
+        if (isItemInCart) {
+            toast.warning('This product is already added to the cart.');
+        } else {
+            const productId = id;
+            addItemOnLS(productId);
+            toast.success('Product added to cart successfully.')
+        }
+    }
+
 
     return (
         <div className="max-w-6xl mx-auto py-16">
@@ -20,7 +35,7 @@ const SingleProduct = () => {
                         <p className="text-3xl font-bold my-8">${loadedData.productPrice}</p>
                     </div>
                     <div>
-                        <Link to={`/product/${loadedData._id}`} className='text-white bg-blue-700 py-2 mt-1 rounded-sm px-8'>Add to cart</Link>
+                        <button onClick={() => addToCart(loadedData._id)} className='text-white bg-blue-700 py-2 mt-1 rounded-sm px-8'>Add to cart</button>
                     </div>
                 </div>
             </div>

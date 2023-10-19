@@ -86,6 +86,9 @@ const Header = () => {
                     <li>
                         <NavLink to="/brands" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Brands</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/carts" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Carts</NavLink>
+                    </li>
                     {
                         user ? <>
                             <ul className="flex gap-1 items-center">
