@@ -1,38 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BsFacebook } from 'react-icons/bs';
+import { AiFillTwitterCircle } from 'react-icons/ai';
+import { BiLogoInstagramAlt } from 'react-icons/bi';
 
 const Footer = () => {
     return (
-        <div className='bg-[#283646] py-16'>
-            <div className='grid grid-cols-5 gap-6 max-w-6xl mx-auto'>
-                <div className='text-white col-span-2'>
-                    <p className='text-xl font-bold'>LOGO</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio omnis earum consectetur et ipsum laboriosam repellat praesentium eum id magnam.</p>
-                    <p className='mt-8'>Copyright Satyam Studio</p>
+        <div className='bg-[#283646] pt-16'>
+            <div className='flex items-center gap-8 flex-col text-white justify-center max-w-6xl mx-auto'>
+                <p className='text-2xl text blod font-bold text-blue-700'>TECH ZONE</p>
+                <div className='flex gap-8'>
+                    <Link>Home</Link>
+                    <Link>About</Link>
+                    <Link>Contact</Link>
+                    <Link>Services</Link>
+                    <Link>Terms & conditions</Link>
                 </div>
-                <div className='text-white'>
-                    <h2 className='text-xl font-bold mb-4'>Services</h2>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
+                <div className='flex text-blue-700 text-2xl gap-4'>
+                    <BsFacebook />
+                    <AiFillTwitterCircle />
+                    <BiLogoInstagramAlt />
                 </div>
-                <div className='text-white'>
-                    <h2 className='text-xl font-bold mb-4'>Services</h2>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                </div>
-                <div className='text-white'>
-                    <h2 className='text-xl font-bold mb-4'>Services</h2>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
-                    <Link className='block'>Illustration</Link>
+                <div className='border-t w-full py-8'>
+                    <p className='text-center'>Copyright Satyam Tech Zone</p>
                 </div>
             </div>
         </div>

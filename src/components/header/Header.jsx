@@ -74,7 +74,8 @@ const Header = () => {
             {/* desktop navbar  */}
             <nav className="md:hidden justify-between items-center py-2 max-w-6xl mx-auto hidden lg:flex">
                 <ul>
-                    <li><NavLink className={'text-xl font-extrabold'}><img className="w-2/6" src={'https://i.ibb.co/j6nPCbs/logo-removebg-preview.png'} /></NavLink></li>
+                    <li><NavLink className={'text-xl font-extrabold'}>                <p className='text-2xl text blod font-bold text-blue-700'>TECH ZONE</p>
+                    </NavLink></li>
                 </ul>
                 <ul className="flex items-center gap-6">
                     <li>
@@ -87,7 +88,7 @@ const Header = () => {
                         <NavLink to="/brands" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Brands</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/carts" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Carts</NavLink>
+                        <NavLink to={`/carts`} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Carts</NavLink>
                     </li>
                     {
                         user ? <>

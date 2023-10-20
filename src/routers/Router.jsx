@@ -49,13 +49,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/brands',
-                element: <ProductBrands />,
-                loader: ()=> fetch('http://localhost:3000/brands')
+                element: <ProductBrands />
             },
             {
                 path: '/carts',
                 element: <Carts />,
-                loader: ()=> fetch('http://localhost:3000/products')
+                 // loader: ({params})=> fetch(`http://localhost:3000/carts/${params.email}`)
             }
         ]
     },

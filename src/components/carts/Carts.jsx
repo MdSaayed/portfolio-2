@@ -1,26 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { getItemsFromLS } from '../../js/addTocard';
 import Cart from './Cart';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-toastify';
+
 
 const Carts = () => {
-    const loadedLs = getItemsFromLS();
-    const [cartItems, setCartItems] = useState(loadedLs)
-    const allProduct = useLoaderData();
-    const filterProducts = allProduct?.filter(item => cartItems.includes(item._id));
-    const [showItems, setShowItems] = useState(null);
-
-
-    const handleItemDelete = (id) => {
-        const remainingItems = showItems?.filter(item => item._id !== id);
-        const remainingId = cartItems?.filter(itemId => itemId !== id);
-        setShowItems(remainingItems);
-        localStorage.setItem('cart-items', JSON.stringify(remainingId));
-    }
+    const { user, loading } = useContext(AuthContext);
+    const userEmail = user?.email;
+    const [showItems, setShowItems] = useState([]);
 
     useEffect(() => {
-        setShowItems(filterProducts)
-    }, [allProduct])
+        if (!loading) {
+            fetch(`http://localhost:3000/carts/${userEmail}`)
+                .then(res => res.json())
+                .then(data => setShowItems(data))
+        }
+    }, [user])
+
+    const handleItemDelete = (id) => {
+        fetch(`http://localhost:3000/carts/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => {
+                if (!loading) {
+                    fetch(`http://localhost:3000/carts/${userEmail}`)
+                        .then(res => res.json())
+                        .then(data => setShowItems(data))
+                }
+            })
+            .then(data => toast.success('Item deleted.'))
+    }
+
 
     return (
         <div className='max-w-6xl mx-auto py-16'>
@@ -29,7 +41,7 @@ const Carts = () => {
                     <div className='mb-16'>
                         <h1 className='text-3xl font-bold text-center'>Shopping Cart</h1>
                     </div>
-                </>: <>
+                </> : <>
                 </>
             }
             {/* product cart tabel */}

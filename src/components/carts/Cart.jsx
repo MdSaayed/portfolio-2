@@ -4,8 +4,6 @@ import { addItemOnLS, getItemsFromLS } from '../../js/addTocard';
 const Cart = ({ item, handleItemDelete }) => {
     const { _id, productName, productImgUrl, productPrice } = item;
 
-   
-
     return (
         <tr className=" sm:space-x-4 border-b border-gray-200 hover:bg-gray-100">
             <td className="w-full sm:w-auto px-6 py-1">

@@ -1,9 +1,16 @@
 import { useLoaderData } from "react-router-dom";
 import Brand from "./Brand";
+import { useEffect, useState } from "react";
 
 
 const ProductBrands = () => {
-    const loadedBrand = useLoaderData();
+    const [loadedBrand, setLoadedBrand] = useState([]);
+
+    useEffect(()=>{
+        fetch('http://localhost:3000/brands')
+            .then(res => res.json())
+            .then(data => setLoadedBrand(data))
+    },[])
 
     return (
         <div className=" max-w-6xl mx-auto my-16">
