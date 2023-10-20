@@ -9,6 +9,7 @@ import Products from "../products/Products";
 import ProductUpdate from "../products/ProductUpdate";
 import SingleProduct from "../products/SingleProduct";
 import Carts from "../components/carts/Carts";
+import PrivateRoute from './PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -30,22 +31,22 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addproducts',
-                element: <AddProducts />
+                element: <PrivateRoute><AddProducts /></PrivateRoute>
             },
             {
                 path: '/products/:name',
-                element: <Products />,
-                loader: ({params})=> fetch(`http://localhost:3000/products/${params.name}`)
+                element: <PrivateRoute><Products /></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/products/${params.name}`)
             },
             {
                 path: '/product/:id',
-                element: <SingleProduct />,
-                loader: ({params})=> fetch(`http://localhost:3000/product/${params.id}`)
+                element: <PrivateRoute><SingleProduct /></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/product/${params.id}`)
             },
             {
                 path: '/update/:id',
-                element: <ProductUpdate />,
-                loader: ({params})=> fetch(`http://localhost:3000/product/${params.id}`)
+                element: <PrivateRoute><ProductUpdate /></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/product/${params.id}`)
             },
             {
                 path: '/brands',
@@ -53,8 +54,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/carts',
-                element: <Carts />,
-                 // loader: ({params})=> fetch(`http://localhost:3000/carts/${params.email}`)
+                element: <PrivateRoute><Carts /></PrivateRoute>,
+                // loader: ({params})=> fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/carts/${params.email}`)
             }
         ]
     },

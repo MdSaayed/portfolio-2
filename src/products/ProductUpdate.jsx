@@ -7,9 +7,11 @@ const ProductUpdate = () => {
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
     const loadedData = useLoaderData();
+    const ratig = [1, 2, 3, 4, 5];
+
 
     useEffect(() => {
-        fetch('http://localhost:3000/brands')
+        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/brands')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -18,7 +20,7 @@ const ProductUpdate = () => {
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:3000/categories')
+        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/categories')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -36,6 +38,7 @@ const ProductUpdate = () => {
         const category = form.category.value;
         const productPrice = form.productPrice.value;
         const shortDescription = form.shortDescription.value;
+        const ratig = form.ratig.value;
 
         const updateProduct = {
             productName,
@@ -43,10 +46,11 @@ const ProductUpdate = () => {
             brandName,
             category,
             productPrice,
-            shortDescription
+            shortDescription,
+            ratig
         }
 
-        fetch(`http://localhost:3000/products/${loadedData._id}`, {
+        fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/products/${loadedData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -86,6 +90,15 @@ const ProductUpdate = () => {
                             <option key={index} value={ctg.name} selected={loadedData?.category === ctg.name}>{ctg.name}</option>
                         ))}
                     </select><br />
+                    <label className="font-bold" htmlFor="rating">Rating:</label><br />
+                    <select id="rating" name="rating" className="p-1 mb-4 rounded border w-full">
+                        <option value="">Select a rating</option>
+                        {ratig.map((rtg, index) => (
+                            <option key={index} value={rtg} selected={loadedData?.ratig == rtg}>{rtg}</option>
+                        ))}
+                    </select><br />
+
+
                     <label className="font-bold" htmlFor="price">Product price:</label><br />
                     <input className="p-1 mb-4 rounded border w-full" type="number" name='productPrice' placeholder="Product price" defaultValue={loadedData.productPrice} /> <br />
                     <label className="font-bold" htmlFor="description">Product short description:</label><br />

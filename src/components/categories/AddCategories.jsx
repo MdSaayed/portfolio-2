@@ -16,7 +16,7 @@ const AddCategories = () => {
             desc,
         }
 
-        fetch('http://localhost:3000/categories', {
+        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/categories', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

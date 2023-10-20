@@ -13,19 +13,19 @@ const Carts = () => {
 
     useEffect(() => {
         if (!loading) {
-            fetch(`http://localhost:3000/carts/${userEmail}`)
+            fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/carts/${userEmail}`)
                 .then(res => res.json())
                 .then(data => setShowItems(data))
         }
     }, [user])
 
     const handleItemDelete = (id) => {
-        fetch(`http://localhost:3000/carts/${id}`, {
+        fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/carts/${id}`, {
             method: 'DELETE'
         })
             .then(res => {
                 if (!loading) {
-                    fetch(`http://localhost:3000/carts/${userEmail}`)
+                    fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/carts/${userEmail}`)
                         .then(res => res.json())
                         .then(data => setShowItems(data))
                 }

@@ -10,11 +10,11 @@ const Footer = () => {
             <div className='flex items-center gap-8 flex-col text-white justify-center max-w-6xl mx-auto'>
                 <p className='text-2xl text blod font-bold text-blue-700'>TECH ZONE</p>
                 <div className='flex gap-8'>
-                    <Link>Home</Link>
-                    <Link>About</Link>
-                    <Link>Contact</Link>
-                    <Link>Services</Link>
-                    <Link>Terms & conditions</Link>
+                    <Link to={'/'}>Home</Link>
+                    <Link to={'/addproducts'}>Add product</Link>
+                    <Link to={'/brands'}>Brands</Link>
+                    <Link to={'/carts'}>Carts</Link>
+                    <Link to={'/'}>Terms & conditions</Link>
                 </div>
                 <div className='flex text-blue-700 text-2xl gap-4'>
                     <BsFacebook />

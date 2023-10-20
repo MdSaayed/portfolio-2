@@ -24,7 +24,8 @@ const Header = () => {
             {/* mobile and tablet navbar */}
             <nav className="md:flex justify-between items-center py-2 max-w-6xl mx-auto flex lg:hidden p-2 lg:px-0">
                 <ul>
-                    <li><NavLink className={'text-xl font-extrabold'}><img className="w-2/6" src={'https://i.ibb.co/j6nPCbs/logo-removebg-preview.png'} /></NavLink></li>
+                    <li><NavLink className={'text-xl font-extrabold'}><p className='text-2xl text blod font-bold text-blue-700'>TECH ZONE</p>
+                    </NavLink></li>
                 </ul>
                 <ul>
                     <div className="flex gap-3 items-center">
@@ -46,13 +47,16 @@ const Header = () => {
                             <GrClose onClick={() => setMenu(!menu)} className={'absolute top-4 left-2 z-10'} />
 
                             <li className="text-xl">
-                                <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Home</NavLink>
+                                <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-blue-700 font-semibold" : ""}>Home</NavLink>
                             </li>
                             <li className="text-xl">
-                                <NavLink to="/yourticked" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Your ticket</NavLink>
+                                <NavLink to="/addproducts" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-blue-700 font-semibold" : ""}>Add product</NavLink>
                             </li>
                             <li className="text-xl">
-                                <NavLink to="/blogs" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Blogs</NavLink>
+                                <NavLink to="/brands" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-blue-700 font-semibold" : ""}>Brands</NavLink>
+                            </li>
+                            <li className="text-xl">
+                                <NavLink to={`/carts`} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-blue-700 font-semibold" : ""}>Carts</NavLink>
                             </li>
                             {
                                 user ? <>
@@ -74,21 +78,21 @@ const Header = () => {
             {/* desktop navbar  */}
             <nav className="md:hidden justify-between items-center py-2 max-w-6xl mx-auto hidden lg:flex">
                 <ul>
-                    <li><NavLink className={'text-xl font-extrabold'}>                <p className='text-2xl text blod font-bold text-blue-700'>TECH ZONE</p>
+                    <li><NavLink className={'text-xl font-extrabold'}><p className='text-2xl text blod font-bold text-blue-700'>TECH ZONE</p>
                     </NavLink></li>
                 </ul>
                 <ul className="flex items-center gap-6">
                     <li>
-                        <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Home</NavLink>
+                        <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-blue-700 font-semibold" : ""}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/addproducts" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Add product</NavLink>
+                        <NavLink to="/addproducts" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-blue-700 font-semibold" : ""}>Add product</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/brands" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Brands</NavLink>
+                        <NavLink to="/brands" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-blue-700 font-semibold" : ""}>Brands</NavLink>
                     </li>
                     <li>
-                        <NavLink to={`/carts`} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Carts</NavLink>
+                        <NavLink to={`/carts`} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-blue-700 font-semibold" : ""}>Carts</NavLink>
                     </li>
                     {
                         user ? <>
@@ -106,7 +110,7 @@ const Header = () => {
                         </> :
                             <>
                                 <li>
-                                    <NavLink to="/signin" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#F5167E] font-semibold" : ""}>Signin</NavLink>
+                                    <NavLink to="/signin" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-blue-700 font-semibold" : ""}>Signin</NavLink>
                                 </li>
                             </>
                     }

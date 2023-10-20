@@ -4,22 +4,23 @@ import { useEffect, useState } from "react";
 import AddCategories from "../components/categories/AddCategories";
 
 const AddProducts = () => {
-    const [brands , setBrands] = useState([]);
-    const [categories , setCategories] = useState([]);
+    const [brands, setBrands] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const ratig = [1, 2, 3, 4, 5];
 
     // fetch brands
     useEffect(() => {
-        fetch('http://localhost:3000/brands')
+        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/brands')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setBrands(data);
             })
     }, [])
-    
+
     // fetch categories
     useEffect(() => {
-        fetch('http://localhost:3000/categories')
+        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/categories')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -37,6 +38,7 @@ const AddProducts = () => {
         const category = form.category.value;
         const productPrice = form.productPrice.value;
         const shortDescription = form.shortDescription.value;
+        const ratig = form.ratig.value;
 
         const product = {
             productName,
@@ -44,10 +46,11 @@ const AddProducts = () => {
             brandName,
             category,
             productPrice,
-            shortDescription
+            shortDescription,
+            ratig
         }
 
-        fetch('http://localhost:3000/products', {
+        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -83,6 +86,13 @@ const AddProducts = () => {
                             <option value="">Select a category</option>
                             {categories.map((category, index) => (
                                 <option key={index} value={category?.name}>{category?.name}</option>
+                            ))}
+                        </select> <br />
+                        <label className="font-bold" htmlFor=" category">Ratig:</label><br />
+                        <select id="ratig" name="ratig" required className="p-1 mb-4 rounded border w-full">
+                            <option value="">Select a ratig</option>
+                            {ratig.map((rtg, index) => (
+                                <option key={index} value={rtg}>{rtg}</option>
                             ))}
                         </select> <br />
                         <label className="font-bold" htmlFor=" price">Product price:</label><br />
