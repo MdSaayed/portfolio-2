@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 const Advertisement = (props) => {
     const { advertisement } = props;
 
-    console.log(advertisement);
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
@@ -30,10 +29,11 @@ const Advertisement = (props) => {
                     <div
                         key={index}
                         id={`slide${index + 1}`}
-                        className={`hero-item relative w-full ${currentSlide === index ? 'translate-x-0' : currentSlide === (index - 1 + slides.length) % slides.length ? 'translate-x-full' : '-translate-x-full'
-                            } transition-transform duration-500 ease-in-out`}
+                        className={`hero-item relative w-full sm:w-1/2 md:w-1/4 xl:w-1/4 ${
+                            currentSlide === index ? 'translate-x-0' : currentSlide === (index - 1 + slides.length) % slides.length ? 'translate-x-full' : '-translate-x-full'
+                        } transition-transform duration-500 ease-in-out`}
                     >
-                        <img src={adv?.advertisementsImg} className="w-full h-[197px] sm:h-auto object-cover" alt={`Slide ${index + 1}`} />
+                        <img src={adv?.advertisementsImg} className="w-full h-auto max-h-[197px] sm:h-auto object-cover" alt={`Slide ${index + 1}`} />
                     </div>
                 ))}
             </div>

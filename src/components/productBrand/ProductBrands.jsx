@@ -13,9 +13,9 @@ const ProductBrands = () => {
     },[])
 
     return (
-        <div className=" max-w-6xl mx-auto my-16">
+        <div className=" max-w-6xl mx-auto my-16 px-2 md:px-0">
             <div>
-                <h1 className="text-4xl font-bold text-center">Our Brands</h1>
+                <h1 className="text-4xl font-bold text-center">Product Brands</h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
                 {

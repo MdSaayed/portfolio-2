@@ -2,8 +2,8 @@ import React from 'react';
 
 const ShortBanner = () => {
     return (
-        <div className='max-w-6xl mx-auto py-16'>
-            <div className="bg-[url('https://i.ibb.co/LSDbTtT/banner-24.jpg')] py-24 bg-cover px-6 rounded-md">
+        <div className="bg-[url('https://i.ibb.co/LSDbTtT/banner-24.jpg')]  py-16 px-6   bg-cover">
+            <div className="rounded-md max-w-6xl mx-auto py-16 px-2 md:px-0">
                 <p className='font-bold text-[1rem] text-blue-500'>WEEKEND DISCOUNT</p>
                 <h2 className='font-bold text-4xl mt-1 mb-2'>Momentum Headphones</h2>
                 <p className='text-xl my-4'>Don't miss the last opportunity.</p>

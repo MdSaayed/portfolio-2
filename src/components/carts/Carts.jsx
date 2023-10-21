@@ -37,7 +37,7 @@ const Carts = () => {
     return (
         <div className='max-w-6xl mx-auto py-16'>
             {
-                showItems?.length < 0 ? <>
+                showItems?.length > 0 ? <>
                     <div className='mb-16'>
                         <h1 className='text-3xl font-bold text-center'>Shopping Cart</h1>
                     </div>

@@ -4,6 +4,7 @@ import ProductBrands from '../components/productBrand/ProductBrands';
 import ShopCart from '../components/shopCarts/ShopCart';
 import ShortBanner from '../components/banner/ShortBanner';
 import NewsLatter from '../components/newslatter/NewsLatter';
+import Reviews from '../components/reviews/Reviews';
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <ShopCart />
             <ProductBrands />
             <ShortBanner />
+            <Reviews />
             <NewsLatter />
         </div>
     );
