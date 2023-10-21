@@ -10,7 +10,7 @@ const SingleProduct = () => {
 
     // Function to fetch cart data
     const fetchCartData = () => {
-        fetch(`http://localhost:3000/carts/${user?.email}`)
+        fetch(`https://brand-server-pi.vercel.app/carts/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setCartItem(data);
@@ -38,7 +38,7 @@ const SingleProduct = () => {
         if (isExist) {
             toast.warning('This product is already in the cart');
         } else {
-            fetch('http://localhost:3000/carts', {
+            fetch('https://brand-server-pi.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -58,7 +58,7 @@ const SingleProduct = () => {
 
     return (
         <div className="max-w-6xl mx-auto py-16">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-8  px-2 md:px-0">
                 <div className="border rounded-sm col-span-2 p-4">
                     <img className="w-full" src={loadedData.productImgUrl} alt="" />
                 </div>

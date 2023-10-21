@@ -6,7 +6,7 @@ const AddAdverisement = () => {
 
     // fetch brands
     useEffect(() => {
-        fetch('http://localhost:3000/brands')
+        fetch('https://brand-server-pi.vercel.app/brands')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -30,14 +30,14 @@ const AddAdverisement = () => {
             brand
         }
 
-        fetch('http://localhost:3000/advertisement', {
+        fetch('https://brand-server-pi.vercel.app/advertisement', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(advertisement)
         })
-            .then(res => toast.success('Advertisement added successfully.'))
+            .then(res => toast.success("Advertisement added successfully."))
             .then(data => console.log(data))
 
     }

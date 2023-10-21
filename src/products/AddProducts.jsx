@@ -11,7 +11,7 @@ const AddProducts = () => {
 
     // fetch brands
     useEffect(() => {
-        fetch('http://localhost:3000/brands')
+        fetch('https://brand-server-pi.vercel.app/brands')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -21,7 +21,7 @@ const AddProducts = () => {
 
     // fetch categories
     useEffect(() => {
-        fetch('http://localhost:3000/categories')
+        fetch('https://brand-server-pi.vercel.app/categories')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -51,7 +51,7 @@ const AddProducts = () => {
             rating
         }
 
-        fetch('http://localhost:3000/products', {
+        fetch('https://brand-server-pi.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -68,7 +68,7 @@ const AddProducts = () => {
             <div>
                 <h2 className="bg-blue-700 p-2 text-center text-3xl text-white">Add new product</h2>
             </div>
-            <div className="my-16 border rounded-sm p-4 grid grid-cols-1 md:grid-cols-4 gap-0 md:gap-8">
+            <div className="my-16 border rounded-sm p-4 grid grid-cols-1 md:grid-cols-4 gap-0 md:gap-8 px-2 md:px-0">
                 <div className="col-span-3">
                     <h2 className="font-bold text-2xl mb-4">Add product details:</h2>
                     <form onSubmit={handleAddProduct}>

@@ -9,7 +9,7 @@ const Footer = () => {
         <div className='bg-[#283646] pt-16'>
             <div className='flex items-center gap-8 flex-col text-white justify-center px-2 md:px-0 max-w-6xl mx-auto'>
                 <p className='text-2xl text blod font-bold text-blue-700'>TECH ZONE</p>
-                <div className='flex gap-4 md:gap-8 flex-wrap'>
+                <div className='flex gap-4 md:gap-8 flex-wrap justify-center'>
                     <Link to={'/'}>Home</Link>
                     <Link to={'/addproducts'}>Add product</Link>
                     <Link to={'/brands'}>Brands</Link>

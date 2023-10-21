@@ -5,7 +5,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 const ShopCart = () => {
     return (
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto py-16'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto py-16 px-2 md:px-0'>
                 <div className="bg-[url('https://i.ibb.co/1RYjyXc/main-home-banner-1-img.png')] bg-cover px-6 py-12 rounded-md">
                     <h2 className='font-bold text-2xl'>Game Joysticks</h2>
                     <div className="flex gap-4 items-center">

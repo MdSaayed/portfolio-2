@@ -12,7 +12,7 @@ const Products = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/advertisement/${name}`)
+        fetch(`https://brand-server-pi.vercel.app/advertisement/${name}`)
             .then(res => res.json())
             .then(data => setAdvertisement(data))
 
@@ -30,7 +30,7 @@ const Products = () => {
             </div>
             {
                 barndProduct?.length > 0 ? <>
-                    <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-12 max-w-6xl mx-auto'>
+                    <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-12 max-w-6xl mx-auto px-2 md:px-0'>
                         {barndProduct?.map((product) => <Product key={product?._id} product={product} setBrandName={setBrandName} />)}
                     </div>
                 </> : <>

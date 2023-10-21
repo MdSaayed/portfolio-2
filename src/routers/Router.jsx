@@ -38,17 +38,17 @@ const router = createBrowserRouter([
             {
                 path: '/products/:name',
                 element: <PrivateRoute><Products /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/products/${params.name}`)
+                loader: ({ params }) => fetch(`https://brand-server-pi.vercel.app/products/${params.name}`)
             },
             {
                 path: '/product/:id',
                 element: <PrivateRoute><SingleProduct /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/product/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-server-pi.vercel.app/product/${params.id}`)
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><ProductUpdate /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/product/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-server-pi.vercel.app/product/${params.id}`)
             },
             {
                 path: '/brands',

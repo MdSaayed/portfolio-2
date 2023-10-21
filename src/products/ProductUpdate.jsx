@@ -13,7 +13,7 @@ const ProductUpdate = () => {
     console.log(loadedData.rating);
 
     useEffect(() => {
-        fetch('http://localhost:3000/brands')
+        fetch('https://brand-server-pi.vercel.app/brands')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -22,7 +22,7 @@ const ProductUpdate = () => {
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:3000/categories')
+        fetch('https://brand-server-pi.vercel.app/categories')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -53,7 +53,7 @@ const ProductUpdate = () => {
         }
         console.log(updateProduct);
 
-        fetch(`http://localhost:3000/products/${loadedData._id}`, {
+        fetch(`https://brand-server-pi.vercel.app/products/${loadedData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
