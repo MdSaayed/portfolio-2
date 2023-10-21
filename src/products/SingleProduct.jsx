@@ -10,7 +10,7 @@ const SingleProduct = () => {
 
     // Function to fetch cart data
     const fetchCartData = () => {
-        fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/carts/${user?.email}`)
+        fetch(`http://localhost:3000/carts/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setCartItem(data);
@@ -38,7 +38,7 @@ const SingleProduct = () => {
         if (isExist) {
             toast.warning('This product is already in the cart');
         } else {
-            fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/carts', {
+            fetch('http://localhost:3000/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

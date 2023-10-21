@@ -2,15 +2,16 @@ import { toast } from "react-toastify";
 import AddBrands from "../components/Brands/AddBrands";
 import { useEffect, useState } from "react";
 import AddCategories from "../components/categories/AddCategories";
+import AddAdverisement from "../components/advertisements/AddAdverisement";
 
 const AddProducts = () => {
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
-    const ratig = [1, 2, 3, 4, 5];
+    const ratings = [1, 2, 3, 4, 5];
 
     // fetch brands
     useEffect(() => {
-        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/brands')
+        fetch('http://localhost:3000/brands')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -20,7 +21,7 @@ const AddProducts = () => {
 
     // fetch categories
     useEffect(() => {
-        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/categories')
+        fetch('http://localhost:3000/categories')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -38,7 +39,7 @@ const AddProducts = () => {
         const category = form.category.value;
         const productPrice = form.productPrice.value;
         const shortDescription = form.shortDescription.value;
-        const ratig = form.ratig.value;
+        const rating = form.rating.value;
 
         const product = {
             productName,
@@ -47,10 +48,10 @@ const AddProducts = () => {
             category,
             productPrice,
             shortDescription,
-            ratig
+            rating
         }
 
-        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/products', {
+        fetch('http://localhost:3000/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -69,6 +70,7 @@ const AddProducts = () => {
             </div>
             <div className="my-16 border rounded-sm p-4 grid grid-cols-1 md:grid-cols-4 gap-0 md:gap-8">
                 <div className="col-span-3">
+                    <h2 className="font-bold text-2xl mb-4">Add product details:</h2>
                     <form onSubmit={handleAddProduct}>
                         <label className="font-bold" htmlFor=" productName">Product name:</label><br />
                         <input className="p-1 mb-4 rounded border w-full" required type="text" name='productName' placeholder="Product name" /> <br />
@@ -88,10 +90,10 @@ const AddProducts = () => {
                                 <option key={index} value={category?.name}>{category?.name}</option>
                             ))}
                         </select> <br />
-                        <label className="font-bold" htmlFor=" category">Ratig:</label><br />
-                        <select id="ratig" name="ratig" required className="p-1 mb-4 rounded border w-full">
-                            <option value="">Select a ratig</option>
-                            {ratig.map((rtg, index) => (
+                        <label className="font-bold" htmlFor=" category">Rating:</label><br />
+                        <select id="ratig" name="rating" required className="p-1 mb-4 rounded border w-full">
+                            <option value="">Select a rating</option>
+                            {ratings.map((rtg, index) => (
                                 <option key={index} value={rtg}>{rtg}</option>
                             ))}
                         </select> <br />
@@ -104,8 +106,10 @@ const AddProducts = () => {
                     </form>
                 </div>
                 <div className="space-y-8">
+                    <h2 className="font-bold text-2xl">Create one if you need:</h2>
                     <AddBrands />
                     <AddCategories />
+                    <AddAdverisement />
                 </div>
             </div>
         </div>

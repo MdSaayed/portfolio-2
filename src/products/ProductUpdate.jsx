@@ -7,11 +7,13 @@ const ProductUpdate = () => {
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
     const loadedData = useLoaderData();
-    const ratig = [1, 2, 3, 4, 5];
+    const ratigs = ['1', '2', '3', '4', '5'];
 
+    ratigs.map(r => console.log(r));
+    console.log(loadedData.rating);
 
     useEffect(() => {
-        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/brands')
+        fetch('http://localhost:3000/brands')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -20,7 +22,7 @@ const ProductUpdate = () => {
     }, [])
 
     useEffect(() => {
-        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/categories')
+        fetch('http://localhost:3000/categories')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -38,7 +40,7 @@ const ProductUpdate = () => {
         const category = form.category.value;
         const productPrice = form.productPrice.value;
         const shortDescription = form.shortDescription.value;
-        const ratig = form.ratig.value;
+        const rating = form.rating.value;
 
         const updateProduct = {
             productName,
@@ -47,10 +49,11 @@ const ProductUpdate = () => {
             category,
             productPrice,
             shortDescription,
-            ratig
+            rating
         }
+        console.log(updateProduct);
 
-        fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/products/${loadedData._id}`, {
+        fetch(`http://localhost:3000/products/${loadedData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +82,7 @@ const ProductUpdate = () => {
                     <select id="brand" name="brand" className="p-1 mb-4 rounded border w-full">
                         <option value="">Select a brand</option>
                         {brands?.map((brand, index) => (
-                            <option key={index} value={brand.brandname} selected={loadedData?.brandName === brand?.brandname}>{brand?.brandname}</option>
+                            <option key={index} value={brand?.brandname} selected={loadedData?.brandName === brand?.brandname}>{brand?.brandname}</option>
                         ))}
                     </select>
                     <br />
@@ -87,18 +90,16 @@ const ProductUpdate = () => {
                     <select id="category" name="category" className="p-1 mb-4 rounded border w-full">
                         <option value="">Select a category</option>
                         {categories.map((ctg, index) => (
-                            <option key={index} value={ctg.name} selected={loadedData?.category === ctg.name}>{ctg.name}</option>
+                            <option key={index} value={ctg?.name} selected={loadedData?.category === ctg?.name}>{ctg?.name}</option>
                         ))}
                     </select><br />
                     <label className="font-bold" htmlFor="rating">Rating:</label><br />
                     <select id="rating" name="rating" className="p-1 mb-4 rounded border w-full">
                         <option value="">Select a rating</option>
-                        {ratig.map((rtg, index) => (
-                            <option key={index} value={rtg} selected={loadedData?.ratig == rtg}>{rtg}</option>
+                        {ratigs.map((rtg, index) => (
+                            <option key={index} value={rtg} selected={loadedData?.rating == rtg}>{rtg}</option>
                         ))}
-                    </select><br />
-
-
+                    </select> <br />
                     <label className="font-bold" htmlFor="price">Product price:</label><br />
                     <input className="p-1 mb-4 rounded border w-full" type="number" name='productPrice' placeholder="Product price" defaultValue={loadedData.productPrice} /> <br />
                     <label className="font-bold" htmlFor="description">Product short description:</label><br />

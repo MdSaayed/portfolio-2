@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Advertisement = () => {
+const Advertisement = (props) => {
+    const { advertisement } = props;
+
+    console.log(advertisement);
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
@@ -15,23 +18,25 @@ const Advertisement = () => {
             setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
         };
 
-        const interval = setInterval(moveNext, 1500);
+        const interval = setInterval(moveNext, 2000);
 
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div className="hero w-full py-5 overflow-hidden">
-            {slides.map((src, index) => (
-                <div
-                    key={index}
-                    id={`slide${index + 1}`}
-                    className={`hero-item relative w-full ${currentSlide === index ? 'translate-x-0' : currentSlide === (index - 1 + slides.length) % slides.length ? 'translate-x-full' : '-translate-x-full'
-                        } transition-transform duration-500 ease-in-out`}
-                >
-                    <img src={src} className="w-full h-96 sm:h-auto object-cover" alt={`Slide ${index + 1}`} />
-                </div>
-            ))}
+        <div className="max-w-6xl py-5 overflow-hidden">
+            <div className="hero-row flex">
+                {advertisement?.map((adv, index) => (
+                    <div
+                        key={index}
+                        id={`slide${index + 1}`}
+                        className={`hero-item relative w-full ${currentSlide === index ? 'translate-x-0' : currentSlide === (index - 1 + slides.length) % slides.length ? 'translate-x-full' : '-translate-x-full'
+                            } transition-transform duration-500 ease-in-out`}
+                    >
+                        <img src={adv?.advertisementsImg} className="w-full h-[197px] sm:h-auto object-cover" alt={`Slide ${index + 1}`} />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

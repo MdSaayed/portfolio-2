@@ -10,11 +10,13 @@ import ProductUpdate from "../products/ProductUpdate";
 import SingleProduct from "../products/SingleProduct";
 import Carts from "../components/carts/Carts";
 import PrivateRoute from './PrivateRoute';
+import Error from "../pages/404";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
+        errorElement: <Error />,
         element: <Layout />,
         children: [
             {
@@ -36,17 +38,17 @@ const router = createBrowserRouter([
             {
                 path: '/products/:name',
                 element: <PrivateRoute><Products /></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/products/${params.name}`)
+                loader: ({ params }) => fetch(`http://localhost:3000/products/${params.name}`)
             },
             {
                 path: '/product/:id',
                 element: <PrivateRoute><SingleProduct /></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/product/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:3000/product/${params.id}`)
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><ProductUpdate /></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/product/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:3000/product/${params.id}`)
             },
             {
                 path: '/brands',
@@ -55,7 +57,6 @@ const router = createBrowserRouter([
             {
                 path: '/carts',
                 element: <PrivateRoute><Carts /></PrivateRoute>,
-                // loader: ({params})=> fetch(`https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/carts/${params.email}`)
             }
         ]
     },

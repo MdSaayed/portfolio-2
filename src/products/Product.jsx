@@ -1,8 +1,9 @@
 import { BiSolidEdit } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
-const Product = ({ product }) => {
+const Product = ({ product, setBrandName }) => {
     const { _id, productName, productImgUrl, productPrice, brandName, rating } = product;
+    setBrandName(brandName);
 
     return (
         <div className="border shadow-sm hover:shadow rounded py-4 relative">
@@ -14,7 +15,7 @@ const Product = ({ product }) => {
             <div className="flex flex-col items-center justify-between mt-2 px-4">
                 <h2 className="font-semibold text-center">{productName}</h2>
                 <p className="text-center text-blue-700">Price: ${productPrice}</p>
-                <p className="text-center">Rating: ${rating ? rating : null}</p>
+                <p className="text-center">Rating: {rating ? rating : 'No rating.'}</p>
                 <Link to={`/product/${_id}`} className='text-white bg-blue-700 py-1 mt-2 rounded-sm px-6'>View Details</Link>
             </div>
         </div>

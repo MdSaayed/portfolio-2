@@ -16,7 +16,7 @@ const AddBrands = () => {
             brandDesc,
         }
 
-        fetch('https://brand-server-fgzqs84fe-md-sayeds-projects.vercel.app/brands', {
+        fetch('http://localhost:3000/brands', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
