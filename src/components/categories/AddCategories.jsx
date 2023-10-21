@@ -15,7 +15,7 @@ const AddCategories = () => {
             img,
             desc,
         }
-
+        // add a category on DB
         fetch('https://brand-server-pi.vercel.app/categories', {
             method: 'POST',
             headers: {
