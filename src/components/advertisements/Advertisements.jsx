@@ -5,22 +5,21 @@ const Advertisement = (props) => {
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    const slides = [
-        'https://i.ibb.co/6RXwD67/8642509.jpg',
-        'https://i.ibb.co/KXfCJYK/18494352-6003862.jpg',
-        'https://i.ibb.co/gMDsDnt/31696846-7841490.jpg',
-        'https://i.ibb.co/6WybFWy/19335415-6083243.jpg',
-    ];
-
     useEffect(() => {
         const moveNext = () => {
-            setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+            setCurrentSlide((prevSlide) => (prevSlide + 1) % advertisement?.length);
+
+            // Stop the interval when all advertisements have been shown
+            if (currentSlide === advertisement?.length - 1) {
+                clearInterval(interval);
+            }
         };
 
         const interval = setInterval(moveNext, 2000);
 
+        // Clear the interval when the component unmounts
         return () => clearInterval(interval);
-    }, []);
+    }, [advertisement, currentSlide]);
 
     return (
         <div className="max-w-6xl py-5 overflow-hidden">
@@ -30,7 +29,7 @@ const Advertisement = (props) => {
                         key={index}
                         id={`slide${index + 1}`}
                         className={`hero-item relative w-full sm:w-1/2 md:w-1/4 xl:w-1/4 ${
-                            currentSlide === index ? 'translate-x-0' : currentSlide === (index - 1 + slides.length) % slides.length ? 'translate-x-full' : '-translate-x-full'
+                            currentSlide === index ? 'translate-x-0' : currentSlide === (index - 1 + advertisement?.length) % advertisement?.length ? 'translate-x-full' : '-translate-x-full'
                         } transition-transform duration-500 ease-in-out`}
                     >
                         <img src={adv?.advertisementsImg} className="w-full h-auto max-h-[197px] sm:h-auto object-cover" alt={`Slide ${index + 1}`} />
