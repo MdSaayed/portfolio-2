@@ -1,18 +1,17 @@
-import React from 'react';
-
 const Banner = () => {
     return (
-        <div className='bg-[#FFFDD8]'>
-            <div className='py-16 md:py-28 w-full bg-cover grid grid-cols-1  md:grid-cols-2 items-center justify-between max-w-6xl mx-auto px-2 md:px-0'>
-                <div className='order-2 md:order-1 md:items-start items-center justify-start md:justify-center md:items-start flex flex-col'>
-                    <h2 className='text-xl'>BEST PRICE : $866</h2>
-                    <h1 className='font-extrabold text-5xl text-center md:text-left'>NEW SMART PHONE</h1>
-                    <p className='text-2xl font-semibold mt-3 md:mt-2'>SAMSUNG GRAND 6</p>
-                    <p className='my-4 text-center md:text-left'>There are many variations of passages of phones availables, but the majority have suffered alteration in some form.</p>
-                    <button className='bg-blue-700 mt-6 rounded py-2 px-8 text-white '>BUY NOW</button>
+        <div className="bg-[#F5FCFF] py-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-center gap-6 md:gap-2 py-8 max-w-6xl mx-auto">
+                <div className="order-2 md:order-1 space-y-4">
+                    <p className="font-semibold">Hey, I am Sayed</p>
+                    <h1 className="text-5xl font-bold text-[#282938]">I create <span className="text-[#5E3BEE]">product design</span> and brand<br /> experience</h1>
+                    <p className="text-[#282938]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <div>
+                        <button className="bg-[#5E3BEE] py-2 px-4 rounded-sm text-white">Get In Touch</button>
+                    </div>
                 </div>
-                <div className='flex justify-center order-1 md:order-2'>
-                    <img className='w-1/2 md:w-2/3  py-16 md:py-0' src="https://i.ibb.co/MS7XCxn/layer-2-removebg-preview.png" alt="" />
+                <div className="order-1 md:order-2">
+                    <img src="https://i.ibb.co/F4H4N2v/Group-11-1.png" alt="" />
                 </div>
             </div>
         </div>

@@ -1,28 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { BsFacebook } from 'react-icons/bs';
-import { AiFillTwitterCircle } from 'react-icons/ai';
-import { BiLogoInstagramAlt } from 'react-icons/bi';
+import { Link } from "react-router-dom";
+import { FaFacebookF } from "react-icons/fa";
+import { CiInstagram } from "react-icons/ci";
+import { CiTwitter } from "react-icons/ci";
+import { FaLinkedinIn } from "react-icons/fa";
+
 
 const Footer = () => {
     return (
-        <div className='bg-[#283646] pt-16'>
-            <div className='flex items-center gap-8 flex-col text-white justify-center px-2 md:px-0 max-w-6xl mx-auto'>
-                <p className='text-2xl text blod font-bold text-blue-700'>TECH ZONE</p>
-                <div className='flex gap-4 md:gap-8 flex-wrap justify-center'>
-                    <Link to={'/'}>Home</Link>
-                    <Link to={'/addproducts'}>Add product</Link>
-                    <Link to={'/brands'}>Brands</Link>
-                    <Link to={'/carts'}>Carts</Link>
-                    <Link to={'/'}>Terms & conditions</Link>
+        <div className="bg-[#F5FCFF] py-16">
+            <div className="max-w-6xl mx-auto">
+                <div className="flex justify-between items-center pb-16 border-b">
+                    <div className="logo">
+                        <h2 className="text-2xl font-semibold">LOGO</h2>
+                    </div>
+                    <ul className="flex gap-6">
+                        <li>
+                            <Link>Home</Link>
+                        </li>
+                        <li>
+                            <Link>Portfolio</Link>
+                        </li>
+                        <li>
+                            <Link>About me </Link>
+                        </li>
+                        <li>
+                            <Link>Contact</Link>
+                        </li>
+                        <li>
+                            <Link>Testimonials</Link>
+                        </li>
+                        <li>
+                            <Link>Portfolio</Link>
+                        </li>
+                    </ul>
+                    <ul className="flex gap-4">
+                        <li><Link><FaFacebookF /></Link></li>
+                        <li><Link><CiInstagram /></Link></li>
+                        <li><Link><CiTwitter /></Link></li>
+                        <li><Link><FaLinkedinIn /></Link></li>
+                    </ul>
                 </div>
-                <div className='flex text-blue-700 text-2xl gap-4'>
-                    <BsFacebook />
-                    <AiFillTwitterCircle />
-                    <BiLogoInstagramAlt />
-                </div>
-                <div className='border-t w-full py-8'>
-                    <p className='text-center'>All &copy;Copyrights reserve Tech Zone</p>
+                <div className="flex justify-between items-center">
+                    <p className="text-gray-600 text-center mt-4"> &copy; {new Date().getFullYear()} Your Company Name. All Rights Reserved. </p>
+                    <ul className="flex gap-6">
+                        <li>
+                            <Link>Privacy Policy</Link>
+                        </li>
+                        <li>
+                            <Link>Terms of Service</Link>
+                        </li>
+                        <li>
+                            <Link>Cookies Settings</Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
