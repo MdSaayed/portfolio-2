@@ -9,11 +9,11 @@ const Footer = () => {
     return (
         <div className="bg-[#F5FCFF] py-16">
             <div className="max-w-6xl mx-auto">
-                <div className="flex justify-between items-center pb-16 border-b">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center pb-16 border-b">
                     <div className="logo">
                         <h2 className="text-2xl font-semibold">LOGO</h2>
                     </div>
-                    <ul className="flex gap-6">
+                    <ul className="flex flex-wrap justify-center gap-6">
                         <li>
                             <Link>Home</Link>
                         </li>
@@ -40,7 +40,7 @@ const Footer = () => {
                         <li><Link><FaLinkedinIn /></Link></li>
                     </ul>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center">
                     <p className="text-gray-600 text-center mt-4"> &copy; {new Date().getFullYear()} Your Company Name. All Rights Reserved. </p>
                     <ul className="flex gap-6">
                         <li>

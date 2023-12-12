@@ -1,4 +1,5 @@
 
+import Blogs from '../blogs/Blogs';
 import About from '../components/about/About';
 import ContactUs from '../components/contact/ContactUs';
 import Footer from '../components/footer/Footer';
@@ -18,6 +19,7 @@ const Home = () => {
             <About />
             <Portfoilo />
             <Testimonial />
+            <Blogs />
             <ContactUs />
             <Footer />
         </div>

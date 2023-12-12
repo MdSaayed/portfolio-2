@@ -9,7 +9,7 @@ const About = () => {
                     <img className='w-4/5' src="https://i.ibb.co/NNZ92yk/About-Me.png" alt="" />
                 </div>
                 <div>
-                    <SectionTitle subTitle={`About`} title={`About Me`} desc={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris duis. Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.<br /> Sit turpis pretium eget maecenas. Vestibulum dolor mattis consectetur eget commodo vitae. Amet pellentesque sit pulvinar lorem mi a, euismod risus r.`} />
+                    <SectionTitle subTitle={`About`} title={`About Me`} desc={`Dedicated and versatile web developer with expertise in JavaScript, React, Node.js, Express.js, MongoDB, HTML, and CSS. Thrives on creating seamless user experiences and dynamic applications. Detail-oriented and committed to staying at the forefront of web technologies. Excited to collaborate on innovative projects and contribute to the evolving landscape of digital solutions.`} />
                 </div>
             </div>
         </div>

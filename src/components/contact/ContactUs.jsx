@@ -9,29 +9,29 @@ const ContactUs = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
             </div>
             <div className="flex items-center justify-center pt-16">
-                <form>
+                <form className="md:w-3/5 w-full">
                     <div className="flex gap-4 mb-2">
-                        <div>
+                        <div className="w-full">
                             <label className="font-semibold mb-1 block">First name</label>
-                            <input className="border py-1 px-2 rounded-sm block" type="text" name="fname" />
+                            <input className="border py-1 px-2 rounded-sm w-full" type="text" name="fname" />
                         </div>
-                        <div>
+                        <div className="w-full">
                             <label className="font-semibold mb-1 block">Last name</label>
-                            <input className="border py-1 px-2 rounded-sm block" type="text" name="lname" />
+                            <input className="border py-1 px-2 rounded-sm w-full" type="text" name="lname" />
                         </div>
                     </div>
                     <div className="flex gap-4 mb-2">
-                        <div>
+                        <div className="w-full">
                             <label className="font-semibold mb-1 block">Email</label>
-                            <input className="border py-1 px-2 rounded-sm block" type="text" name="email" />
+                            <input className="border py-1 px-2 rounded-sm w-full" type="text" name="email" />
                         </div>
-                        <div>
+                        <div className="w-full">
                             <label className="font-semibold mb-1 block">Phone number</label>
-                            <input className="border py-1 px-2 rounded-sm block" type="text" name="phone" />
+                            <input className="border py-1 px-2 rounded-sm w-full" type="text" name="phone" />
                         </div>
                     </div>
                     <div className="flex gap-4 mb-2">
-                        <div>
+                        <div className="w-full">
                             <label className="font-semibold mb-1 block">Message</label>
                             <textarea className="border py-1 px-2 rounded-sm w-full" name="message" id="" cols="55" rows="5"></textarea>
                         </div>
