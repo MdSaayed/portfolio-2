@@ -5,11 +5,14 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import router from "./routers/Router";
+import CustomCursor from "./custom-cursor/Cursor";
 
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <CustomCursor />
+
   </React.StrictMode>
 );

@@ -4,6 +4,7 @@ import { GrClose } from 'react-icons/gr';
 import { HiBars3 } from 'react-icons/hi2';
 import { IoIosLogOut } from 'react-icons/io';
 import { useState } from "react";
+import { Link } from "react-scroll";
 
 
 
@@ -67,17 +68,21 @@ const Header = () => {
                 </ul>
                 <ul className="flex items-center gap-6">
                     <li>
-                        <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#1C1E53] font-semibold text-xl" : "text-[#1C1E53] text-xl"}>Home</NavLink>
+                        <Link to="/" smooth={true} duration={900} className="your-link-styles cursor-pointer">Home</Link>
                     </li>
                     <li>
-                        <NavLink to="/portfolio" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#1C1E53] font-semibold text-xl" : "text-[#1C1E53] text-xl"}>Portfolio</NavLink>
+                        <Link to="portfolio" smooth={true} duration={900} className="your-link-styles cursor-pointer">Portfolio</Link>
                     </li>
                     <li>
-                        <NavLink to="/about" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#1C1E53] font-semibold text-xl" : "text-[#1C1E53] text-xl"}>About me</NavLink>
+                        <Link to="about" smooth={true} duration={900} className="your-link-styles cursor-pointer">About me</Link>
                     </li>
                     <li>
-                        <NavLink to="/testimonials" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active text-[#1C1E53] font-semibold text-xl" : "text-[#1C1E53] text-xl"}>Testimonials</NavLink>
+                        <Link to="testimonials" smooth={true} duration={900} className="your-link-styles cursor-pointer">Testimonials</Link>
                     </li>
+                    <li>
+                        <Link to="contact" smooth={true} duration={900} className="your-link-styles cursor-pointer">Contact</Link>
+                    </li>
+
                 </ul>
                 <ul>
                     <li>

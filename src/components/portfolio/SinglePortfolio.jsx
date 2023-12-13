@@ -34,20 +34,3 @@ const SinglePortfolio = () => {
 
 export default SinglePortfolio;
 
-// {
-//     "_id": "65783179d22ea5564c793060",
-//     "name": "Project 1",
-//     "description": "A description of your first project. Highlight key features and technologies used.",
-//     "image": "https://i.ibb.co/Z8Y6DZW/Image.png",
-//     "url": "https://www.project1.com",
-//     "features": [
-//         "Feature 1",
-//         "Feature 2",
-//         "Feature 3"
-//     ],
-//     "technologies": [
-//         "Technology 1",
-//         "Technology 2",
-//         "Technology 3"
-//     ]
-// }

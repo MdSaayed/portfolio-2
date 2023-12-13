@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     {
         path: "/project/:id",
         element: <SinglePortfolio />,
-        loader: ({ params }) => fetch(`http://localhost:3000/project/${params?.id}`)
+        loader: ({ params }) => fetch(`https://server-quuxm36gi-md-sayeds-projects.vercel.app/project/${params?.id}`)
       }      
 ]);
 
