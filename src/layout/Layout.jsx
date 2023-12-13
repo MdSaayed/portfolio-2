@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import Home from "../pages/Home";
 
 
-const Layout = () => {
+const Layout = () => {           
     return (
         <div>
             <Outlet />
