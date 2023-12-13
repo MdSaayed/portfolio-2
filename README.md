@@ -1,2 +1,2 @@
-##New Features:
--Custom cursor
+## New Features:
+- Custom cursor
