@@ -4,6 +4,7 @@ import { FaDribbble } from "react-icons/fa";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { Element } from 'react-scroll';
+import {FacebookIcon, FacebookShareButton} from "react-share";
 
 
 
@@ -15,6 +16,7 @@ const Portfoilo = () => {
             .then(res => res.json())
             .then(data => setProjects(data));
     }, [])
+
 
     return (
         <Element name='portfolio'>
@@ -34,9 +36,18 @@ const Portfoilo = () => {
                                 <div className='space-y-2 p-6 mt-4'>
                                     <h2 className="text-3xl font-bold">{project.name}</h2>
                                     <p>{project?.description.length > 60 ? project.description.slice(0, 60) + '...' : project.description}</p>
-                                    <Link to={`/project/${project._id}`}>
-                                        <button className='flex items-center gap-2 border-b-2 py-1 border-[#006B6A] font-semibold'>View In Details <MdOutlineArrowOutward className='text-[#006B6A] ' /></button>
-                                    </Link>
+                                    <div className='flex justify-between items-center'>
+                                        <div>
+                                            <Link to={`/project/${project._id}`}>
+                                                <button className='flex items-center gap-2 border-b-2 py-1 border-[#006B6A] font-semibold'>View In Details <MdOutlineArrowOutward className='text-[#006B6A] ' /></button>
+                                            </Link>
+                                        </div>
+                                        <div>
+                                            <FacebookShareButton url={`https://astonishing-kataifi-211be6.netlify.app/project/${project._id}`}>
+                                                <FacebookIcon className='w-[22px] h-[22px] rounded-full' />
+                                            </FacebookShareButton>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </>)
